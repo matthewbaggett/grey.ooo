@@ -1,0 +1,24 @@
+version: "3.4"
+services:
+  grey-ooo:
+    image: matthewbaggett/grey.ooo
+    build:
+      context: .
+    environment:
+      LETSENCRYPT_DOMAINS: grey.ooo
+      LETSENCRYPT_EMAIL: matthew@baggett.me
+      LETSENCRYPT_MODE: "production"
+    ports:
+      - 80:80
+      - 443:443
+
+#  ngrok:
+#    image: wernight/ngrok
+#    ports:
+#      - 127.0.0.5:4040:4040
+#    environment:
+#      NGROK_PORT: grey-ooo:80
+#      NGROK_AUTH: 1ehdJTYsf8vWkxkGAsRVLOAba7z_6wZNQhxdXxc8hA3rBuH1H
+#      NGROK_SUBDOMAIN: greyooo
+#    depends_on:
+#      - grey-ooo
